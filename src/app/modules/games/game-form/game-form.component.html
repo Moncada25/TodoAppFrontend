@@ -1,0 +1,44 @@
+<form class="col-md-4 mx-auto right-effect" [formGroup]="gameForm">
+  <h3 class="text-center">{{ edit ? "Edit game" : "New game" }}</h3>
+  <hr />
+
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" name="title" formControlName="title" [class.is-invalid]="gameForm.get('title').invalid" [class.is-valid]="
+        gameForm.get('title').valid && gameForm.get('title').value
+      " />
+    <div class="invalid-feedback">
+      {{ gameForm.get("title").hasError("minlength") ? "The title too short" : "" }} {{ gameForm.get("title").hasError("maxlength") ? "The maximum length is 15 characters" : "" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input type="text" class="form-control" id="description" name="description" formControlName="description" [class.is-invalid]="gameForm.get('description').invalid" [class.is-valid]="
+        gameForm.get('description').valid && gameForm.get('description').value
+      " />
+    <div class="invalid-feedback">
+      {{ gameForm.get("description").hasError("minlength") ? "The description too short" : "" }} {{ gameForm.get("description").hasError("maxlength") ? "The maximum length is 50 characters" : "" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="image">Image</label>
+    <input type="url" class="form-control" id="image" name="image" formControlName="image" [class.is-invalid]="gameForm.get('image').invalid" [class.is-valid]="
+        gameForm.get('image').valid && gameForm.get('image').value
+      " />
+    <div class="invalid-feedback">
+      {{ gameForm.get("image").hasError("minlength") ? "The image too short" : "" }} {{ gameForm.get("image").hasError("maxlength") ? "The maximum length is 50 characters" : "" }}
+    </div>
+  </div>
+
+  <button class="btn btn-success btn-block" (click)="edit ? updateGame() : saveNewGame()" [disabled]="
+      gameForm.invalid ||
+      !gameForm.get('title').value ||
+      !gameForm.get('description').value ||
+      !gameForm.get('image').value
+    ">
+    <i class=" {{ edit ? 'zmdi zmdi-refresh zmdi-hc-lg' : 'zmdi zmdi-save zmdi-hc-lg' }} "></i>
+    {{ edit ? " Update " : " Save " }}
+  </button>
+</form>

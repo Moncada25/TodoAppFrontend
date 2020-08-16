@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "todoapp-25": {
+      "hosting": {
+        "client": [
+          "todoapp-25"
+        ]
+      }
+    }
+  }
+}

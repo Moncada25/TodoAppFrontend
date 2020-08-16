@@ -1,0 +1,39 @@
+<div class="center down-effect">
+  <form class="col-md-4 mx-auto" [formGroup]="loginForm">
+    <h3 class="text-center">Login</h3>
+    <hr />
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" name="username" formControlName="username" [class.is-invalid]="loginForm.get('username').invalid" [class.is-valid]="
+        loginForm.get('username').valid && loginForm.get('username').value
+      " />
+      <div class="invalid-feedback">
+        {{ loginForm.get("username").hasError("minlength") ? "The username too short" : "" }} {{ loginForm.get("username").hasError("maxlength") ? "The maximum length is 12 characters" : "" }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" formControlName="password" [class.is-invalid]="loginForm.get('password').invalid" [class.is-valid]="
+        loginForm.get('password').valid && loginForm.get('password').value
+      " />
+      <div class="invalid-feedback">
+        {{ loginForm.get("password").hasError("minlength") ? "The password too short" : "" }} {{ loginForm.get("password").hasError("maxlength") ? "The maximum length is 20 characters" : "" }}
+      </div>
+    </div>
+
+    <div class="row">
+      <button (click)="login()" [disabled]="
+        loginForm.invalid ||
+        !loginForm.get('username').value ||
+        !loginForm.get('password').value
+      " class="btn btn-sm btn-outline-success mx-auto col-md-3">
+        <i class="zmdi zmdi-sign-in zmdi-hc-lg"></i> Login
+      </button>
+      <button routerLink="/register" class="btn btn-sm btn-outline-info col-md-3 mx-auto">
+        <i class="zmdi zmdi-accounts zmdi-hc-lg"></i> Sign Up
+      </button>
+    </div>
+  </form>
+</div>

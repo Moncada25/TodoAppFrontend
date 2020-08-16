@@ -1,0 +1,56 @@
+<div class="container" *ngIf="navbarService.showBar">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" routerLink="profile"><i class="zmdi zmdi-account-o zmdi-hc-lg"></i> {{
+      navbarService.userLogged
+    }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="zmdi zmdi-gamepad zmdi-hc-lg"></i> Games
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/games" routerLinkActive="active" tabindex="-1" aria-disabled="true"><i class="zmdi zmdi-collection-text zmdi-hc-lg"></i> Your Games</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/games/add" routerLinkActive="active" tabindex="-1" aria-disabled="true"><i class="zmdi zmdi-plus-circle zmdi-hc-lg"></i> Add Game</a>
+        </li>
+    </div>
+    </li>
+
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="zmdi zmdi-bookmark-outline zmdi-hc-lg"></i> Tasks
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="tasks" routerLinkActive="active" tabindex="-1" aria-disabled="true"><i class="zmdi zmdi-collection-text zmdi-hc-lg"></i> Your Tasks</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="tasks/add" routerLinkActive="active" tabindex="-1" aria-disabled="true"><i class="zmdi zmdi-plus-circle zmdi-hc-lg"></i> Add Task</a>
+    </li>
+</div>
+</li>
+
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="zmdi zmdi-account zmdi-hc-lg"></i> Account
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+<li class="nav-item">
+  <a class="nav-link" routerLink="profile" routerLinkActive="active" tabindex="-1" aria-disabled="true"><i class="zmdi zmdi-account-circle zmdi-hc-lg"></i> Profile</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" routerLink="login" routerLinkActive="active" tabindex="-1" aria-disabled="true" (click)="logOut()"><i class="zmdi zmdi-power zmdi-hc-lg"></i> Logout</a>
+</li>
+</div>
+</li>
+</ul>
+</div>
+</nav>
+</div>

@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-md-4">
+    <form class="p-3 mx-auto" [formGroup]="skillForm">
+      <h3 class="text-center">Add your skills!</h3>
+      <hr />
+
+      <div class="form-group">
+        <label for="skillName">New skill</label>
+        <input type="text" class="form-control" autofocus id="skillName" name="skillName" formControlName="name" [class.is-invalid]="skillForm.get('name').invalid" [class.is-valid]="
+            skillForm.get('name').valid && skillForm.get('name').value
+          " />
+        <div class="invalid-feedback">
+          {{ skillForm.get("name").hasError("minlength") ? "The skill too short" : "" }} {{ skillForm.get("name").hasError("maxlength") ? "The maximum length is 20 characters" : "" }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <select class="custom-select" id="selectLevel" (change)="setLevel($event.target.value)">
+          <option *ngFor="let i of levels">{{ i }}</option>
+        </select>
+      </div>
+      <div class="row">
+        <button (click)="deleteSkill()" class="btn btn-sm btn-outline-danger col-md-4 mx-auto">
+          <i class="zmdi zmdi-delete zmdi-hc-lg"></i> Delete skill
+        </button>
+        <button (click)="newSkill()" [disabled]="skillForm.invalid || !skillForm.get('name').value" class="btn btn-sm btn-outline-success col-md-4 mx-auto">
+          <i class="zmdi zmdi-plus-circle-o-duplicate zmdi-hc-lg"></i> Add skill
+        </button>
+      </div>
+    </form>
+  </div>
+  <hr />
+  <div class="col-md-7">
+    <div *ngIf="skills.length < 1" class="alert alert-info text-center" role="alert">
+      List empty, add a skill to the list!
+    </div>
+    <div *ngIf="skills.length > 0">
+      <div class="row text-center" *ngFor="let skill of skills">
+        <div class="list-group col-md-6" id="list-tab" role="tablist">
+          <button type="button" style="height: 25px; padding: 0; margin-bottom: 8px;" class="list-group-item list-group-item-action list-group-item-info" id="listSkills" (click)="changeStatus($event.target)" value="{{ skill.id }}" role="tab" aria-controls="item">
+            {{ skill.name }} ({{ skill.level_name }})
+          </button>
+        </div>
+        <div class="col-md-6">
+          <div class="progress" style="height: 25px;">
+            <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" [style.width.%]="skill.level_value">{{skill.level_value}}%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

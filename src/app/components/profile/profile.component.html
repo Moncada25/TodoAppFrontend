@@ -1,0 +1,102 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="alert alert-secondary" role="alert">
+      <h4 class="alert-heading">
+        {{ user.name + " " + user.last_name }}, {{ user.age }}
+      </h4>
+      <p>{{ user.description }}</p>
+      <hr />
+      <div class="row">
+        <h4 class="mb-0 col-sm-10">
+          You are {{ skillsLength}} skills!
+        </h4>
+        <button (click)="updateCheck($event.target)" class="btn btn-sm btn-info col-sm-2" id="toggleUpdate">
+          <i class="{{ update ? 'zmdi zmdi-close zmdi-hc-lg' : 'zmdi zmdi-refresh zmdi-hc-lg' }}"></i>
+          {{ update ? "Cancel update" : "Update profile" }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form class="p-3 mx-auto col-md-12 top-effect" *ngIf="update" [formGroup]="profileForm">
+  <h3 class="text-center">Edit your profile</h3>
+  <hr />
+
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" formControlName="name" [class.is-invalid]="profileForm.get('name').invalid" [class.is-valid]="
+          profileForm.get('name').valid && profileForm.get('name').value
+        " />
+      <div class="invalid-feedback">
+        {{ profileForm.get("name").hasError("minlength") ? "The name too short" : "" }} {{ profileForm.get("name").hasError("maxlength") ? "The maximum length is 20 characters" : "" }} {{ profileForm.get("name").hasError("required") ? "This field is required"
+                : "" }}
+      </div>
+    </div>
+
+    <div class="form-group col-sm-6">
+      <label for="last_name">Last name</label>
+      <input type="text" class="form-control" id="last_name" name="last_name" formControlName="last_name" [class.is-invalid]="profileForm.get('last_name').invalid" [class.is-valid]="
+          profileForm.get('last_name').valid &&
+          profileForm.get('last_name').value
+        " />
+      <div class="invalid-feedback">
+        {{ profileForm.get("last_name").hasError("minlength") ? "The last name too short" : "" }} {{ profileForm.get("last_name").hasError("maxlength") ? "The maximum length is 20 characters" : "" }} {{ profileForm.get("last_name").hasError("required") ? "This
+                field is required" : "" }}
+      </div>
+    </div>
+
+    <div class="form-group col-sm-6">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" name="username" formControlName="username" [class.is-invalid]="profileForm.get('username').invalid" [class.is-valid]="
+          profileForm.get('username').valid && profileForm.get('username').value
+        " />
+      <div class="invalid-feedback">
+        {{ profileForm.get("username").hasError("minlength") ? "The username too short" : "" }} {{ profileForm.get("username").hasError("maxlength") ? "The maximum length is 12 characters" : "" }} {{ profileForm.get("username").hasError("required") ? "This field
+                is required" : "" }}
+      </div>
+    </div>
+
+    <div class="form-group col-sm-6">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" formControlName="email" [class.is-invalid]="profileForm.get('email').invalid" [class.is-valid]="profileForm.get('email').valid" />
+      <div class="invalid-feedback">
+        {{ profileForm.get("email").hasError("minlength") ? "The email too short" : "" }} {{ profileForm.get("email").hasError("maxlength") ? "The maximum length is 40 characters" : "" }}
+      </div>
+    </div>
+
+    <div class="form-group col-sm-6">
+      <label for="age">Age</label>
+      <input type="number" class="form-control" min="10" max="100" maxlength="2" id="age" name="age" formControlName="age" [class.is-invalid]="profileForm.get('age').invalid" [class.is-valid]="profileForm.get('age').valid" />
+      <div class="invalid-feedback">
+        {{ profileForm.get("age").hasError("min") ? "You are too young!" : "" }} {{ profileForm.get("age").hasError("max") ? "You are too old!" : "" }}
+      </div>
+    </div>
+
+    <div class="form-group col-sm-6">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" formControlName="password" [class.is-invalid]="profileForm.get('password').invalid" [class.is-valid]="profileForm.get('password').valid" />
+      <div class="invalid-feedback">
+        {{ profileForm.get("password").hasError("minlength") ? "The password too short" : "" }} {{ profileForm.get("password").hasError("maxlength") ? "The maximum length is 20 characters" : "" }}
+      </div>
+    </div>
+
+    <div class="form-group col-sm-12">
+      <label for="description">Description</label>
+
+      <textarea type="text" class="form-control" id="description" name="description" formControlName="description" [class.is-invalid]="profileForm.get('description').invalid" [class.is-valid]="profileForm.get('description').valid"></textarea>
+      <div class="invalid-feedback">
+        {{ profileForm.get("description").hasError("minlength") ? "The description too short" : "" }} {{ profileForm.get("description").hasError("maxlength") ? "The maximum length is 1000 characters" : "" }}
+      </div>
+    </div>
+  </div>
+
+  <button (click)="updateProfile()" [disabled]="profileForm.invalid" class="btn btn-success btn-block">
+    <i class="zmdi zmdi-save zmdi-hc-lg"></i> Save
+  </button>
+</form>
+
+<br />
+<hr />
+<app-skills userId="{{ user.id }}" (skillsUser)="getLengthSkills($event)"></app-skills>

@@ -1,0 +1,61 @@
+<form class="col-md-4 mx-auto down-effect" [formGroup]="registerForm">
+  <h3 class="text-center">Register</h3>
+  <hr />
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" formControlName="name" [class.is-invalid]="registerForm.get('name').invalid" [class.is-valid]="
+        registerForm.get('name').valid && registerForm.get('name').value
+      " />
+    <div class="invalid-feedback">
+      {{ registerForm.get("name").hasError("minlength") ? "The name too short" : "" }} {{ registerForm.get("name").hasError("maxlength") ? "The maximum length is 20 characters" : "" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="last_name">Last name</label>
+    <input type="text" class="form-control" id="last_name" name="last_name" formControlName="last_name" [class.is-invalid]="registerForm.get('last_name').invalid" [class.is-valid]="
+        registerForm.get('last_name').valid &&
+        registerForm.get('last_name').value
+      " />
+    <div class="invalid-feedback">
+      {{ registerForm.get("last_name").hasError("minlength") ? "The last name too short" : "" }} {{ registerForm.get("last_name").hasError("maxlength") ? "The maximum length is 20 characters" : "" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username" name="username" formControlName="username" [class.is-invalid]="registerForm.get('username').invalid" [class.is-valid]="
+        registerForm.get('username').valid && registerForm.get('username').value
+      " />
+    <div class="invalid-feedback">
+      {{ registerForm.get("username").hasError("required") ? "This field is required" : "" }} {{ registerForm.get("username").hasError("minlength") ? "The username too short" : "" }} {{ registerForm.get("username").hasError("maxlength") ? "The maximum length
+            is 12 characters" : "" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" name="password" formControlName="password" [class.is-invalid]="registerForm.get('password').invalid" [class.is-valid]="
+        registerForm.get('password').valid && registerForm.get('password').value
+      " />
+    <div class="invalid-feedback">
+      {{ registerForm.get("password").hasError("minlength") ? "The password too short" : "" }} {{ registerForm.get("password").hasError("maxlength") ? "The maximum length is 20 characters" : "" }}
+    </div>
+  </div>
+
+  <div class="row">
+    <button (click)="register()" [disabled]="
+        registerForm.invalid ||
+        !registerForm.get('name').value ||
+        !registerForm.get('last_name').value ||
+        !registerForm.get('username').value ||
+        !registerForm.get('password').value
+      " class="btn btn-sm btn-outline-success col-md-3 mx-auto">
+      <i class="zmdi zmdi-account-add zmdi-hc-lg"></i> Sign Up!
+    </button>
+    <button routerLink="/login" class="btn btn-sm btn-outline-danger col-md-3 mx-auto">
+      <i class="zmdi zmdi-arrow-back zmdi-hc-lg"></i> Back
+    </button>
+  </div>
+</form>
