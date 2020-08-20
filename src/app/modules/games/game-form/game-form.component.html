@@ -41,4 +41,7 @@
     <i class=" {{ edit ? 'zmdi zmdi-refresh zmdi-hc-lg' : 'zmdi zmdi-save zmdi-hc-lg' }} "></i>
     {{ edit ? " Update " : " Save " }}
   </button>
+
+  <input type="hidden" id="idHidden" value="{{gameForm.get('id').value}}">
+  <input type="hidden" id="dateHidden" value="{{gameForm.get('created_at').value}}">
 </form>

@@ -52,4 +52,7 @@
     <i class="{{ edit ? 'zmdi zmdi-refresh zmdi-hc-lg' : 'zmdi zmdi-save zmdi-hc-lg' }}"></i>
     {{ edit ? " Update" : " Save" }}
   </button>
+
+  <input type="hidden" id="idHidden" value="{{taskForm.get('id').value}}">
+  <input type="hidden" id="dateHidden" value="{{taskForm.get('created_at').value}}">
 </form>

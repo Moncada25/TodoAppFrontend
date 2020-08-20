@@ -1,6 +1,6 @@
 <div class="container" *ngIf="navbarService.showBar">
   <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" routerLink="profile"><i class="zmdi zmdi-account-o zmdi-hc-lg"></i> {{
+    <a class="navbar-brand" routerLink="profile" id="userLogged"><i class="zmdi zmdi-account-o zmdi-hc-lg"></i> {{
       navbarService.userLogged
     }}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,7 +10,7 @@
       <ul class="navbar-nav ml-auto">
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" id="navbarGames" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="zmdi zmdi-gamepad zmdi-hc-lg"></i> Games
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -24,7 +24,7 @@
     </li>
 
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a class="nav-link dropdown-toggle" id="navbarTasks" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="zmdi zmdi-bookmark-outline zmdi-hc-lg"></i> Tasks
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -38,7 +38,7 @@
 </li>
 
 <li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <a class="nav-link dropdown-toggle" id="navbarAccount" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="zmdi zmdi-account zmdi-hc-lg"></i> Account
   </a>
   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
