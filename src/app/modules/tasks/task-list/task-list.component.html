@@ -18,8 +18,8 @@
       <h3 id="assignment">{{ task.assignment }}</h3>
       <h5 id="points">{{ task.points }} points</h5>
       <h5 id="description">{{ task.description }}</h5>
-      <h4 id="created_at">
-        {{ task.created_at | date: "dd-MM-yyyy hh:mm" }}
+      <h4 id="createdAt">
+        {{ task.createdAt | date: "dd-MM-yyyy hh:mm" }}
       </h4>
       <h5 id="completed">{{task.completed ? 'Completed' : 'Incomplete'}}</h5>
     </div>
@@ -30,6 +30,6 @@
     </div>
 
     <input type="hidden" id="idHidden" value="{{task.id}}">
-    <input type="hidden" id="dateHidden" value="{{task.created_at}}">
+    <input type="hidden" id="dateHidden" value="{{task.createdAt}}">
   </div>
 </div>
