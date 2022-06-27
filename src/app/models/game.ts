@@ -3,6 +3,6 @@ export interface Game {
   title?: string;
   description?: string;
   image?: string;
-  createdAt?: Date;
+  created_at?: Date;
   id_user?: number;
 }

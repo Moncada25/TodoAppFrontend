@@ -56,7 +56,7 @@ export class TaskFormComponent implements OnInit {
   }
 
   updateTask(): void {
-    delete this.taskForm.value.createdAt;
+    delete this.taskForm.value.created_at;
 
     this.tasksServices
       .updateTask(this.task.id, this.taskForm.value)
@@ -73,7 +73,7 @@ export class TaskFormComponent implements OnInit {
 
   saveNewTask(): void {
     delete this.task.id;
-    delete this.task.createdAt;
+    delete this.task.created_at;
 
     const newTask: Task = {
       ...this.task,
@@ -113,7 +113,7 @@ export class TaskFormComponent implements OnInit {
         Validators.min(1),
         Validators.max(21),
       ]),
-      createdAt: new FormControl(this.task.createdAt, []),
+      created_at: new FormControl(this.task.created_at, []),
       completed: new FormControl(this.task.completed, []),
       id_user: [this.task.completed],
     });

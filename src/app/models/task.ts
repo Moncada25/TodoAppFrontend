@@ -4,7 +4,7 @@ export interface Task {
   title?: string;
   description?: string;
   points?: number;
-  createdAt?: Date;
+  created_at?: Date;
   completed?: boolean | number;
   id_user?: number;
 }

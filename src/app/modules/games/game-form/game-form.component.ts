@@ -56,7 +56,7 @@ export class GameFormComponent implements OnInit {
   }
 
   updateGame(): void {
-    delete this.game.createdAt;
+    delete this.game.created_at;
 
     this.gamesServices
       .updateGame(this.game.id, this.gameForm.value)
@@ -73,7 +73,7 @@ export class GameFormComponent implements OnInit {
 
   saveNewGame(): void {
     delete this.game.id;
-    delete this.game.createdAt;
+    delete this.game.created_at;
 
     const newGame: Game = {
       ...this.game,
@@ -108,7 +108,7 @@ export class GameFormComponent implements OnInit {
         Validators.minLength(4),
         Validators.maxLength(200),
       ]),
-      createdAt: new FormControl(this.game.createdAt, []),
+      created_at: new FormControl(this.game.created_at, []),
       id_user: new FormControl(this.game.id_user, []),
     });
   }
