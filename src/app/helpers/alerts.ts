@@ -1,9 +1,8 @@
 import Swal from "sweetalert2";
-import { ValueOrThunk } from "sweetalert2";
 
 export class Alerts {
-  readonly outsideClick: ValueOrThunk<false>;
-  readonly escapeKey: ValueOrThunk<false>;
+  readonly outsideClick: false;
+  readonly escapeKey: false;
 
   showToastAlert(
     titleAlert: string,
