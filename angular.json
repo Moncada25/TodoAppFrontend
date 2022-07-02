@@ -19,7 +19,10 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": [ "src/favicon.ico", "src/assets" ],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
               "src/styles.css",
               "node_modules/material-design-iconic-font/dist/css/material-design-iconic-font.css"
@@ -31,10 +34,12 @@
           },
           "configurations": {
             "production": {
-              "fileReplacements": [ {
-                "replace": "src/environments/environment.ts",
-                "with": "src/environments/environment.prod.ts"
-              } ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -43,7 +48,8 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [ {
+              "budgets": [
+                {
                   "type": "initial",
                   "maximumWarning": "1500mb",
                   "maximumError": "8048mb"
@@ -81,8 +87,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [ "src/favicon.ico", "src/assets" ],
-            "styles": [ "src/styles.css" ],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
             "scripts": []
           }
         },
@@ -94,7 +105,9 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [ "**/node_modules/**" ]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -116,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "client"
+  "defaultProject": "client",
+  "cli": {
+    "analytics": "9aa9d1c0-385b-4d89-bf01-9abe6eb5c9d0"
+  }
 }
